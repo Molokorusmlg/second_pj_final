@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Город бесов</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+  </head>
+  <body>
+    <section class="aboutcitY">
+      <header class="header">
+        <div class="header__container">
+          <div class="header__logo">
+            <img src="./assets/img/logo.png" alt="ЛОГО" class="header__img" />
+          </div>
+          <div class="header__menu">
+            <div class="header__links">
+              <a href="#maps" class="header__link">Карта</a>
+              <a href="#line" class="header__link">Линия</a>
+            </div>
+          </div>
+          <div class="header__buttons">
+            <div onclick="ShowModal()" class="header__button">
+              <a class="header__button-link" href="#">Свзяться с нами</a>
+            </div>
+            <a onclick="burgerMeny()" href="#" class="header__burger">
+              <img
+                class="header__burger-img"
+                src="./assets/img/Burger.svg"
+                alt="burder"
+              />
+            </a>
+          </div>
+        </div>
+      </header>
+      <div class="aboutcity" onclick="ShowEkb()">
+        <h1 class="aboutcity__title">Екатеринбург</h1>
+        <p class="aboutcity__text">
+          Главный кород Свердловской области. Эталон промышленного города,
+          конструктивизма и постмодернизма в одном лице
+        </p>
+      </div>
+    </section>
+    <section class="Bigmap" id="maps">
+      <div class="mapsmall" style="position: relative; overflow: hidden">
+        <a
+          href="https://yandex.ru/maps/54/yekaterinburg/?utm_medium=mapframe&utm_source=maps"
+          style="color: #eee; font-size: 12px; position: absolute; top: 0px"
+          >Екатеринбург</a
+        ><a
+          href="https://yandex.ru/maps/54/yekaterinburg/catalog/?ll=60.618456%2C56.840209&utm_medium=mapframe&utm_source=maps&z=13.4"
+          style="color: #eee; font-size: 12px; position: absolute; top: 14px"
+          >173 600 организаций Екатеринбурга — Яндекс Карты</a
+        ><iframe
+          src="https://yandex.ru/map-widget/v1/?ll=60.618456%2C56.840209&mode=catalog&z=13.4"
+          frameborder="0"
+          allowfullscreen="true"
+          style="
+            position: relative;
+            border-radius: 40px;
+            width: 100%;
+            height: 100%;
+          "
+        ></iframe>
+      </div>
+      <div class="Bigmap__hide">
+        <div class="Bigmap__text noroute">
+          <h1 class="Bigmap__text-title">
+            Посмотрите интеерсные места нашего города!
+          </h1>
+          <p class="Bigmap__text-paragraph">
+            Екатеринбург находится на границе Европы и Азии. Географические
+            координаты: 56°50′ северной широты, 60°35′ восточной долготы, 270 м
+            над уровнем моря. Расположен на восточном склоне Среднего Урала,
+            восточные предгорья которого встречаются с Зауральской складчатой
+            возвышенностью, по берегам реки Исети. На широте города полоса
+            предгорий представляет собой невысокие, но длинные вытянутые с
+            севера на юг увалы, которые чередуются с широкими понижениями.
+            Высота их колеблется в пределах от 280 до 300 м. Понижения нередко
+            заняты болотами. Долина реки Исети на территории Екатеринбурга
+            довольно широкая. Имеет пойменные террасы: низкую и высокую.
+          </p>
+        </div>
+        <div class="streka" onclick="hedeText()">
+          <img src="./assets/img/right_strelka.svg" alt="right_strelka" />
+        </div>
+      </div>
+    </section>
+    <section class="redline" id="line">
+      <div class="redline__bigText">
+        <h1 class="redline__bigText-title">Красная Линия</h1>
+        <label class="redline__bigText-label" for="search"
+          >Найти по слову ( enter применить )</label
+        >
+        <input
+          class="redline__bigText-input"
+          onchange="SeeSearch()"
+          id="search"
+          type="text"
+        />
+        <div class="redline__bigText_inputbox">
+          <label class="redline__bigText-label" for="parks">Парки</label>
+          <input class="check" id="parks" type="checkbox" value="парки" />
+
+          <label class="redline__bigText-label" for="buildings">здания</label>
+          <input class="check" id="buildings" type="checkbox" value="здания" />
+
+          <label class="redline__bigText-label" for="museums">музеи</label>
+          <input class="check" id="museums" type="checkbox" value="музеи" />
+
+          <label class="redline__bigText-label" for="hrams">храмы</label>
+          <input class="check" id="hrams" type="checkbox" value="храмы" />
+        </div>
+        <button class="redline__bigText_button" onclick="viewElements()">
+          <p>Найти</p>
+        </button>
+        <div class="redline__bigText-text">
+          <!-- <a onclick="ShowCard(0)" id="0" class="buildings">1. Площадь 1905 года</a>
+          <a onclick="ShowCard(1)" id="1" class="buildings"></a>>2. Второй Дом Советов («Дом Чекиста»)</a>
+          <a onclick="ShowCard(2)" id="2" class="parki">3. Октябрьская площадь</a>
+          <a onclick="ShowCard(3)" id="3" class="parki">4. Квартал «Екатеринбург-Сити»</a>
+          <a onclick="ShowCard(4)" id="4" class="buildings"></a>>5. Ельцин Центр</a>
+          <a onclick="ShowCard(5)" id="5" class="parki">6. Сквер в честь 275-летия Екатеринбурга</a>
+          <a onclick="ShowCard(6)" id="6" class="parki">7. Набережная Рабочей Молодёжи</a>
+          <a onclick="ShowCard(7)" id="7" class="buildings"></a>>8. Мужская гимназия</a>
+          <a onclick="ShowCard(8)" id="8" class="parki">9. Исторический сквер</a>
+          <a onclick="ShowCard(9)" id="9" class="museumi">10. Музеи исторического сквера</a>
+          <a onclick="ShowCard(10)" id="10" class="parki">11. Площадь труда</a>
+          <a onclick="ShowCard(11)" id="11" class="buildings"></a>>12. Нулевой километр (Дом связи)</a>
+          <a onclick="ShowCard(12)" id="12" class="buildings"></a>>13. Дом Севастьянова (резиденция Президента РФ)</a>
+          <a onclick="ShowCard(13)" id="13" class="buildings"></a>>14. Усадьба купца Тарасова</a>
+          <a onclick="ShowCard(14)" id="14" class="parki">15. Литературный квартал</a>
+          <a onclick="ShowCard(15)" id="15" class="hrami"></a>>16. Храм-на-Крови</a>
+          <a onclick="ShowCard(16)" id="16" class="buildings"></a>>17. Усадьба Расторгуева-Харитонова</a>
+          <a onclick="ShowCard(17)" id="17">
+            18. Свердловская государственная академическая филармония
+          </a>
+          <a onclick="ShowCard()" id="18">19. Фотографический музей «Дом Метенкова»</a>
+          <a onclick="ShowCard()" id="19">20. Музей истории Екатеринбурга</a>
+          <a onclick="ShowCard()" id="20">21. Здание первого городского театра</a>
+          <a onclick="ShowCard()" id="21">22. Типография «Уральский рабочий» («Дом печати»)</a>
+          <a onclick="ShowCard()" id="22">23. Площадь Парижской коммуны</a>
+          <a onclick="ShowCard()" id="23">24. Театр Оперы и балета</a>
+          <a onclick="ShowCard()" id="24">25. Памятник Владимиру Высоцкому и Марине Влади</a>
+          <a onclick="ShowCard()" id="25">26. Небоскреб Высоцкий и музей В. Высоцкого</a>
+          <a onclick="ShowCard()" id="26">27. Американская гостиница</a>
+          <a onclick="ShowCard()" id="27">28. Городская электростанция «Луч»</a>
+          <a onclick="ShowCard()" id="28">29. Памятник группе «The Beatles»</a>
+          <a onclick="ShowCard()" id="29">30. Памятник клавиатуре</a>
+          <a onclick="ShowCard()" id="30">31. Дом В.И. Чувильдина</a>
+          <a onclick="ShowCard()" id="31">32. Головной офис Русской медной компании</a>
+          <a onclick="ShowCard()" id="32">33. Музей Эрнста Неизвестного</a>
+          <a onclick="ShowCard()"id="33">
+            34. Дом Поклевских-Козелл (Свердловский областной краеведческий
+            музей)
+          </p>
+          <a id="34">35. Дом обороны</a>
+          <a id="35">36. Храм «Большой Златоуст»</a>
+          <a id="36">37. Дом контор</a>
+          <a id="37">38. Центр «Эрмитаж Урал»</a>
+          <a id="38">39. Улица Вайнера</a> -->
+        </div>
+      </div>
+      <div class="redline__marshruts">
+        <div class="redline__marshruts_container">
+          <div class="redline__marshruts-title">
+            <h1 class="redline__marshruts-title">Маршрут</h1>
+          </div>
+          <div class="redline__marshruts__line">
+            <img
+              class="redline__marshruts__line-img"
+              src="./assets/img/Linemarshruts.svg"
+              alt=""
+            />
+            <div class="redline__marshruts-circle" id="m1">
+              <p class="number__marshrut">1</p>
+            </div>
+          </div>
+          <div class="redline__marshruts-text">
+            <p class="redline__marshruts-text">Площадь 1905 года</p>
+          </div>
+          <div class="redline__marshruts__cardBox">
+            <div class="redline__marshruts__cardBox_SmallCardBox"></div>
+            <button class="controls">
+              <img src="./assets/img/Arrow.svg" class="arrow strelka" alt="" />
+              <img
+                src="./assets/img/Arrow.svg"
+                class="arrow-reverse strelka"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+        <a href="#" onclick="ShowModal()" class="tour-text-link">
+          <button class="tour">
+            <p onclick="ShowModal()" class="tour-text">Купить</p>
+          </button>
+        </a>
+        <div class="pagination">
+          <a onclick="pagination(1)" class="pagination__page-a">1..11</a>
+          <a onclick="pagination(2)" class="pagination__page-a">11..21</a>
+          <a onclick="" class="pagination__page-a">21..31</a>
+          <a onclick="" class="pagination__page-a">31..39</a>
+        </div>
+      </div>
+    </section>
+    <section class="modal deactive">
+      <div class="modal__over">
+        <div class="modal__row">
+          <h1 class="modal-title">Оставте заявку на курс</h1>
+          <div class="modal__close">
+            <a href="#" onclick="HideModal()">
+              <img
+                class="img__close rotate"
+                src="./assets/img/minus.svg"
+                alt="minus"
+              />
+              <img
+                class="img__close"
+                src="./assets/img/minus.svg"
+                alt="minus"
+              />
+            </a>
+          </div>
+        </div>
+        <form action="" class="modal__form">
+          <label class="modal__label" for="">номер</label>
+          <input type="number" class="modal__number modal__input" />
+          <label class="modal__label" for="">фио</label>
+          <input type="text" class="modal__fio modal__input" />
+          <button class="modal__button">
+            <p onclick="HideModal()">Отправить</p>
+          </button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__company">
+        <h4 class="footer__company-title">ООО Урал</h4>
+        <p class="footer__company-text">Спасибо за внимание</p>
+        <p class="footer__company-text">Все права защищены</p>
+      </div>
+      <div class="footer__contacts">
+        <div class="telegram">
+          <img src="./assets/img/tg.png" alt="" /><!--Телеграмм иконка-->
+          <a>Телеграмм</a>
+        </div>
+        <div class="Vk">
+          <img src="./assets/img/vk.svg" alt="" /><!--vk иконка-->
+          <a>Вконтакте</a>
+        </div>
+        <div class="telefone">
+          <img src="./assets/img/tel.png" alt="" /><!--Телефон иконка-->
+          <a>+89961800116</a>
+        </div>
+      </div>
+      <div class="footer__button" onclick="ShowModal()">
+        <a href="#" >Свзяться с нами</a>
+      </div>
+      <div class="footer__logo">
+        <img src="./assets/img/logo.png" alt="" />
+      </div>
+    </footer>
+    <div class="burgerMeny bhide">
+      <div class="burgerMeny_block">
+        <div class="burgerMeny_block_header">
+          <img
+            class="burgerMeny_block_header-img"
+            src="./assets/img/logo.png"
+            alt="logo"
+          />
+          <img
+            onclick="burgerMeny()"
+            class="burgerMeny_block_header-imgsecond"
+            src="./assets/img/close.svg"
+            alt=""
+          />
+        </div>
+        <div class="burgerMeny_block_spisok">
+          <a class="burgerMeny_block_spisok-link" href="#maps">Карта</a>
+          <a class="burgerMeny_block_spisok-link" href="#line">Линия</a>
+          <a class="burgerMeny_block_spisok-link" href="#">О нас</a>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./cityList.js"></script>
+  </body>
+</html>
